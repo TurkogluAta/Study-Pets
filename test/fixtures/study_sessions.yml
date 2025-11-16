@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  title: MyString
+  start_time: 2025-11-10 17:00:04
+  duration: 1
+  focus_rating: 1
+  completed: false
+  notes: MyText
+
+two:
+  user: two
+  title: MyString
+  start_time: 2025-11-10 17:00:04
+  duration: 1
+  focus_rating: 1
+  completed: false
+  notes: MyText

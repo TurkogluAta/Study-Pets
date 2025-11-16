@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Management - Study Pet</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <div class="dashboard-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-header">
+          <div class="sidebar-logo" aria-hidden="true">🐾</div>
+          <div class="sidebar-title">Study Pet</div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-menu">
+            <a class="nav-item" href="dashboard.html"><span>Dashboard</span></a>
+            <a class="nav-item active" href="tasks.html"><span>Tasks</span></a>
+            <a class="nav-item" href="sessions.html"><span>Study Sessions</span></a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <a class="nav-item" href="index.html"><span>Log out</span></a>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-info">
+          <h1 class="header-title">My Tasks</h1>
+          <p class="header-subtitle">Manage your studies and goals.</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn-primary" onclick="window.location.href='task-form.html'">
+            <span>➕</span>
+            <span>New Task</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <section class="dashboard-content">
+        <!-- Stats Cards -->
+        <div class="stats-overview">
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-card-icon">⏳</div>
+              <div class="stat-card-label">Pending Tasks</div>
+            </div>
+            <div class="stat-card-value">3</div>
+            <p class="stat-hint">Active tasks</p>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-card-icon">📅</div>
+              <div class="stat-card-label">This Week</div>
+            </div>
+            <div class="stat-card-value">2</div>
+            <p class="stat-hint">Due soon</p>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-card-icon">🔥</div>
+              <div class="stat-card-label">High Priority</div>
+            </div>
+            <div class="stat-card-value">1</div>
+            <p class="stat-hint">Needs attention</p>
+          </div>
+        </div>
+
+        <!-- Tasks Table -->
+        <div class="panel-card table-panel">
+          <div class="table-wrapper">
+            <table class="tasks-table">
+              <thead>
+                <tr>
+                  <th class="col-title">Task Title</th>
+                  <th class="col-priority">Priority</th>
+                  <th class="col-date">Due Date</th>
+                  <th class="col-status">Status</th>
+                  <th class="col-actions">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="task-row">
+                  <td class="task-title">Complete User Interface Design</td>
+                  <td>
+                    <span class="chip high">High</span>
+                  </td>
+                  <td class="task-date">12/25/2024</td>
+                  <td>
+                    <span class="badge warn">Pending</span>
+                  </td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="action-btn" title="Edit"
+                        onclick="window.location.href='task-form.html'">✏️</button>
+                      <button class="action-btn success" title="Complete">✓</button>
+                      <button class="action-btn danger" title="Delete">🗑</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="task-row">
+                  <td class="task-title">Develop API Integration</td>
+                  <td>
+                    <span class="chip medium">Medium</span>
+                  </td>
+                  <td class="task-date">12/28/2024</td>
+                  <td>
+                    <span class="badge warn">Pending</span>
+                  </td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="action-btn" title="Edit"
+                        onclick="window.location.href='task-form.html'">✏️</button>
+                      <button class="action-btn success" title="Complete">✓</button>
+                      <button class="action-btn danger" title="Delete">🗑</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="task-row completed">
+                  <td class="task-title">Create Database Schema</td>
+                  <td>
+                    <span class="chip low">Low</span>
+                  </td>
+                  <td class="task-date">12/20/2024</td>
+                  <td>
+                    <span class="badge done">Completed</span>
+                  </td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="action-btn" title="Edit"
+                        onclick="window.location.href='task-form.html'">✏️</button>
+                      <button class="action-btn success" title="Complete">✓</button>
+                      <button class="action-btn danger" title="Delete">🗑</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="task-row">
+                  <td class="task-title">Design Application Icon</td>
+                  <td>
+                    <span class="chip low">Low</span>
+                  </td>
+                  <td class="task-date">12/30/2024</td>
+                  <td>
+                    <span class="badge warn">Pending</span>
+                  </td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="action-btn" title="Edit"
+                        onclick="window.location.href='task-form.html'">✏️</button>
+                      <button class="action-btn success" title="Complete">✓</button>
+                      <button class="action-btn danger" title="Delete">🗑</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>
