@@ -1,26 +1,26 @@
-# README
+# Study Pets
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A study habit building app with virtual pets.
 
-Things you may want to cover:
+## What it does
 
-* Ruby version
+- Track study sessions
+- Manage tasks
+- Feed your virtual pet
+- Earn levels and points
 
-* System dependencies
+## Tech Stack
 
-* Configuration
+- Ruby on Rails 8.1
+- PostgreSQL
+- JWT authentication
+- HTML/CSS/JavaScript frontend
 
-* Database creation
+## Features
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-*
+- User registration and login
+- Create and track tasks
+- Log study sessions
+- Choose your pet (cat/dog)
+- Level system
+- Experience points
