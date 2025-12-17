@@ -1,31 +1,33 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  username: MyString
-  email: MyString
-  password_digest: MyString
-  name: MyString
-  total_study_time: 1
-  streak_days: 1
-  last_study_date: 2025-11-10
-  pet_name: MyString
-  pet_type: MyString
-  pet_mood: MyString
-  pet_energy: 1
-  level: 1
-  experience_points: 1
+  username: alice
+  email: alice@test.com
+  password_digest: <%= BCrypt::Password.create('password') %>
+  name: Alice Smith
+  total_study_time: 120
+  streak_days: 3
+  last_study_date: <%= Date.today %>
+  pet_name: Whiskers
+  pet_type: cat
+  pet_mood: happy
+  pet_energy: 85
+  level: 2
+  experience_points: 150
+  last_checked_at: <%= Time.current %>
 
 two:
-  username: MyString
-  email: MyString
-  password_digest: MyString
-  name: MyString
-  total_study_time: 1
+  username: bob
+  email: bob@test.com
+  password_digest: <%= BCrypt::Password.create('password') %>
+  name: Bob Jones
+  total_study_time: 60
   streak_days: 1
-  last_study_date: 2025-11-10
-  pet_name: MyString
-  pet_type: MyString
-  pet_mood: MyString
-  pet_energy: 1
+  last_study_date: <%= Date.today %>
+  pet_name: Max
+  pet_type: dog
+  pet_mood: neutral
+  pet_energy: 50
   level: 1
-  experience_points: 1
+  experience_points: 75
+  last_checked_at: <%= Time.current %>

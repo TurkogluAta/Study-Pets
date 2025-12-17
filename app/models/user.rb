@@ -6,6 +6,7 @@ class User < ApplicationRecord
   # == AUTHENTICATION ==
   # Adds password hashing and authentication using bcrypt.
   has_secure_password
+  validates :password, length: { minimum: 6 }, if: -> { new_record? || !password.nil? }
 
   # == NORMALIZATION ==
   # Clean up fields that affect uniqueness before validation.

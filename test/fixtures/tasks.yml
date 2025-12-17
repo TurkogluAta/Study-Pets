@@ -2,16 +2,16 @@
 
 one:
   user: one
-  title: MyString
-  due_date: 2025-11-10 17:00:08
-  status: MyString
-  priority: MyString
-  description: MyText
+  title: Complete Math Assignment
+  due_date: <%= 2.days.from_now %>
+  status: pending
+  priority: high
+  description: Finish calculus homework chapter 5
 
 two:
   user: two
-  title: MyString
-  due_date: 2025-11-10 17:00:08
-  status: MyString
-  priority: MyString
-  description: MyText
+  title: Read History Chapter
+  due_date: <%= 5.days.from_now %>
+  status: in_progress
+  priority: normal
+  description: Read and summarize chapter on World War II

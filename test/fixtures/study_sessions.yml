@@ -2,18 +2,21 @@
 
 one:
   user: one
-  title: MyString
-  start_time: 2025-11-10 17:00:04
-  duration: 1
-  focus_rating: 1
-  completed: false
-  notes: MyText
+  title: Math Study Session
+  start_time: <%= 2.hours.ago %>
+  end_time: <%= 1.hour.ago %>
+  duration: 60
+  actual_duration: 60
+  focus_rating: 4
+  completed: true
+  notes: Studied differential equations
+  xp_earned: 60
 
 two:
   user: two
-  title: MyString
-  start_time: 2025-11-10 17:00:04
-  duration: 1
-  focus_rating: 1
+  title: Physics Review
+  start_time: <%= 1.hour.ago %>
+  duration: 30
+  focus_rating: nil
   completed: false
-  notes: MyText
+  notes: Reviewing thermodynamics
