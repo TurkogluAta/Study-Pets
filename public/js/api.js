@@ -10,9 +10,32 @@ function isAuthenticated() {
     return !!getAuthToken();
 }
 
+// Decode JWT and check if token is valid and not expired
+function isTokenValid() {
+    const token = getAuthToken();
+    if (!token) return false;
+
+    try {
+        // JWT structure: header.payload.signature
+        const payload = JSON.parse(atob(token.split('.')[1]));
+
+        // Check if expired (exp is in seconds, Date.now() is in ms)
+        if (payload.exp && payload.exp * 1000 < Date.now()) {
+            localStorage.removeItem('auth_token');
+            return false;
+        }
+
+        return true;
+    } catch (e) {
+        // Invalid token format
+        localStorage.removeItem('auth_token');
+        return false;
+    }
+}
+
 // Redirect to login if not authenticated
 function requireAuth() {
-    if (!isAuthenticated()) {
+    if (!isTokenValid()) {
         window.location.href = 'index.html';
         return false;
     }
@@ -50,6 +73,21 @@ async function apiRequest(endpoint, options = {}) {
             throw new Error('Session expired');
         }
 
+        // Handle not found
+        if (response.status === 404) {
+            throw new Error('Resource not found');
+        }
+
+        // Handle forbidden
+        if (response.status === 403) {
+            throw new Error('You do not have permission to access this resource');
+        }
+
+        // Handle server errors
+        if (response.status >= 500) {
+            throw new Error('Server error. Please try again later.');
+        }
+
         // Handle other errors
         if (!response.ok) {
             console.error('API Error Response:', data);
@@ -60,7 +98,7 @@ async function apiRequest(endpoint, options = {}) {
             }
 
             // Fallback
-            throw new Error('Request failed. Please try again.');
+            throw new Error(`Request failed with status ${response.status}`);
         }
 
         return { data, status: response.status, ok: response.ok };

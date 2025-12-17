@@ -18,7 +18,20 @@ async function loadTasks() {
         console.error('Tasks load error:', error);
         const tbody = document.querySelector('.tasks-table tbody');
         if (tbody) {
-            tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 2rem; color: #e74c3c;">Failed to load tasks. Please check console for details.</td></tr>';
+            let message = 'Failed to load tasks.';
+
+            if (error.message.includes('Session expired')) {
+                // Will redirect automatically
+                return;
+            } else if (error.message.includes('Server error')) {
+                message = 'Server error. Please try refreshing the page.';
+            } else if (error.message.includes('not found')) {
+                message = 'No tasks found or you may not have permission.';
+            } else {
+                message = `Failed to load tasks: ${error.message}`;
+            }
+
+            tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 2rem; color: #e74c3c;">${message}</td></tr>`;
         }
     }
 }

@@ -70,6 +70,12 @@ async function handleSubmit(e) {
 
     // HTML5 validation handles required fields
 
+    // Show loading state
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = editingTaskId ? 'Updating...' : 'Creating...';
+
     try {
         if (editingTaskId) {
             // Update existing task
@@ -79,11 +85,18 @@ async function handleSubmit(e) {
             await api.post('/tasks', taskData);
         }
 
+        // Wait a bit to ensure DB commit completes
+        await new Promise(resolve => setTimeout(resolve, 200));
+
         // Redirect back to tasks list
         window.location.href = 'tasks.html';
 
     } catch (error) {
+        // Re-enable form
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+
         console.error('Save task error:', error);
-        alert('Failed to save task. Please try again.');
+        alert(`Failed to ${editingTaskId ? 'update' : 'create'} task: ${error.message}`);
     }
 }
