@@ -57,7 +57,7 @@
               <div class="stat-card-icon">⏳</div>
               <div class="stat-card-label">Pending Tasks</div>
             </div>
-            <div class="stat-card-value">3</div>
+            <div class="stat-card-value">0</div>
             <p class="stat-hint">Active tasks</p>
           </div>
 
@@ -66,7 +66,7 @@
               <div class="stat-card-icon">📅</div>
               <div class="stat-card-label">This Week</div>
             </div>
-            <div class="stat-card-value">2</div>
+            <div class="stat-card-value">0</div>
             <p class="stat-hint">Due soon</p>
           </div>
 
@@ -75,7 +75,7 @@
               <div class="stat-card-icon">🔥</div>
               <div class="stat-card-label">High Priority</div>
             </div>
-            <div class="stat-card-value">1</div>
+            <div class="stat-card-value">0</div>
             <p class="stat-hint">Needs attention</p>
           </div>
         </div>
@@ -94,77 +94,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="task-row">
-                  <td class="task-title">Complete User Interface Design</td>
-                  <td>
-                    <span class="chip high">High</span>
-                  </td>
-                  <td class="task-date">12/25/2024</td>
-                  <td>
-                    <span class="badge warn">Pending</span>
-                  </td>
-                  <td>
-                    <div class="action-buttons">
-                      <button class="action-btn" title="Edit"
-                        onclick="window.location.href='task-form.html'">✏️</button>
-                      <button class="action-btn success" title="Complete">✓</button>
-                      <button class="action-btn danger" title="Delete">🗑</button>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="task-row">
-                  <td class="task-title">Develop API Integration</td>
-                  <td>
-                    <span class="chip medium">Medium</span>
-                  </td>
-                  <td class="task-date">12/28/2024</td>
-                  <td>
-                    <span class="badge warn">Pending</span>
-                  </td>
-                  <td>
-                    <div class="action-buttons">
-                      <button class="action-btn" title="Edit"
-                        onclick="window.location.href='task-form.html'">✏️</button>
-                      <button class="action-btn success" title="Complete">✓</button>
-                      <button class="action-btn danger" title="Delete">🗑</button>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="task-row completed">
-                  <td class="task-title">Create Database Schema</td>
-                  <td>
-                    <span class="chip low">Low</span>
-                  </td>
-                  <td class="task-date">12/20/2024</td>
-                  <td>
-                    <span class="badge done">Completed</span>
-                  </td>
-                  <td>
-                    <div class="action-buttons">
-                      <button class="action-btn" title="Edit"
-                        onclick="window.location.href='task-form.html'">✏️</button>
-                      <button class="action-btn success" title="Complete">✓</button>
-                      <button class="action-btn danger" title="Delete">🗑</button>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="task-row">
-                  <td class="task-title">Design Application Icon</td>
-                  <td>
-                    <span class="chip low">Low</span>
-                  </td>
-                  <td class="task-date">12/30/2024</td>
-                  <td>
-                    <span class="badge warn">Pending</span>
-                  </td>
-                  <td>
-                    <div class="action-buttons">
-                      <button class="action-btn" title="Edit"
-                        onclick="window.location.href='task-form.html'">✏️</button>
-                      <button class="action-btn success" title="Complete">✓</button>
-                      <button class="action-btn danger" title="Delete">🗑</button>
-                    </div>
-                  </td>
+                <tr>
+                  <td colspan="5" style="text-align: center; padding: 2rem; color: #666;">Loading tasks...</td>
                 </tr>
               </tbody>
             </table>
@@ -173,6 +104,11 @@
       </section>
     </main>
   </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/tasks.js"></script>
 </body>
 
 </html>

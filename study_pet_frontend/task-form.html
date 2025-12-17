@@ -55,7 +55,7 @@
                   <span class="required">*</span>
                 </label>
                 <input type="text" id="taskTitle" class="form-input" placeholder="e.g., Complete Project Report"
-                  required />
+                  required minlength="3" maxlength="100" />
                 <p class="form-error" id="titleError" style="display: none;">
                   This field is required.
                 </p>
@@ -67,7 +67,7 @@
                   Description
                 </label>
                 <textarea id="taskDescription" class="form-textarea" placeholder="Add more details about the task..."
-                  rows="4"></textarea>
+                  rows="4" maxlength="300"></textarea>
               </div>
 
               <!-- Three Column Layout -->
@@ -87,7 +87,7 @@
                   </label>
                   <select id="taskPriority" class="form-select">
                     <option value="low">Low</option>
-                    <option value="medium" selected>Medium</option>
+                    <option value="normal" selected>Normal</option>
                     <option value="high">High</option>
                   </select>
                 </div>
@@ -121,17 +121,10 @@
     </main>
   </div>
 
-  <!-- Success Notification (hidden by default) -->
-  <div class="notification success" id="successNotification" style="display: none;">
-    <span class="notification-icon">✅</span>
-    <div class="notification-content">
-      <h4 class="notification-title">Success!</h4>
-      <p class="notification-text">Task successfully saved.</p>
-    </div>
-    <button class="notification-close" onclick="closeNotification()">
-      <span>✕</span>
-    </button>
-  </div>
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/task-form.js"></script>
 </body>
 
 </html>

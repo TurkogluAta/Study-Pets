@@ -33,6 +33,9 @@ class StudySessionsController < ApplicationController
         rewards = GamificationSystem.award_session_rewards(@study_session.user, @study_session)
         streak_info = GamificationSystem.calculate_streak(@study_session.user)
 
+        # Save XP earned to the session for future display
+        @study_session.update_column(:xp_earned, rewards[:xp])
+
         render json: {
           study_session: @study_session.as_json,
           rewards: rewards,

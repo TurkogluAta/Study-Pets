@@ -44,9 +44,9 @@
               <div class="stat-card-icon">⏱️</div>
               <div class="stat-card-label">Today's Study</div>
             </div>
-            <div class="stat-card-value">2h 35m</div>
+            <div class="stat-card-value">--</div>
             <div class="progress-bar">
-              <div class="progress-fill energy" style="width: 65%;"></div>
+              <div class="progress-fill energy" style="width: 0%;"></div>
             </div>
           </div>
 
@@ -55,9 +55,9 @@
               <div class="stat-card-icon">📊</div>
               <div class="stat-card-label">This Week</div>
             </div>
-            <div class="stat-card-value">12h 20m</div>
+            <div class="stat-card-value">--</div>
             <div class="progress-bar">
-              <div class="progress-fill xp" style="width: 80%;"></div>
+              <div class="progress-fill xp" style="width: 0%;"></div>
             </div>
           </div>
 
@@ -66,8 +66,7 @@
               <div class="stat-card-icon">🎯</div>
               <div class="stat-card-label">Completed Sessions</div>
             </div>
-            <div class="stat-card-value">24</div>
-            <p class="stat-hint">+6 this week</p>
+            <div class="stat-card-value">--</div>
           </div>
 
           <div class="stat-card">
@@ -75,7 +74,7 @@
               <div class="stat-card-icon">⚡</div>
               <div class="stat-card-label">Average Duration</div>
             </div>
-            <div class="stat-card-value">45m</div>
+            <div class="stat-card-value">--</div>
             <p class="stat-hint">Per session</p>
           </div>
         </div>
@@ -156,65 +155,7 @@
           </div>
 
           <div class="sessions-list">
-            <!-- Session Item 1 -->
-            <div class="session-item">
-              <div class="session-icon completed">✓</div>
-              <div class="session-content">
-                <h3 class="session-title">Math - Differential Equations</h3>
-                <p class="session-meta">
-                  <span class="session-date">🗓️ Today, 14:30 - 16:15</span>
-                  <span class="session-duration">⏱️ 1h 45m</span>
-                  <span class="session-rating">⭐ Focus: 4/5</span>
-                </p>
-                <p class="session-description">Studied integration techniques and solved practice problems.</p>
-              </div>
-              <div class="session-stats">
-                <div class="stat-mini">
-                  <div class="stat-mini-label">Target</div>
-                  <div class="stat-mini-value">2 hours</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Session Item 2 -->
-            <div class="session-item">
-              <div class="session-icon completed">✓</div>
-              <div class="session-content">
-                <h3 class="session-title">Physics - Thermodynamics</h3>
-                <p class="session-meta">
-                  <span class="session-date">🗓️ Yesterday, 10:00 - 11:30</span>
-                  <span class="session-duration">⏱️ 1h 30m</span>
-                  <span class="session-rating">⭐ Focus: 5/5</span>
-                </p>
-                <p class="session-description">Reviewed heat transfer concepts and worked through examples.</p>
-              </div>
-              <div class="session-stats">
-                <div class="stat-mini">
-                  <div class="stat-mini-label">Target</div>
-                  <div class="stat-mini-value">1.5 hours</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Session Item 3 -->
-            <div class="session-item">
-              <div class="session-icon completed">✓</div>
-              <div class="session-content">
-                <h3 class="session-title">English Literature - Shakespeare</h3>
-                <p class="session-meta">
-                  <span class="session-date">🗓️ Dec 10, 2024</span>
-                  <span class="session-duration">⏱️ 50m</span>
-                  <span class="session-rating">⭐ Focus: 3/5</span>
-                </p>
-                <p class="session-description">Read and analyzed Act 2 of Hamlet.</p>
-              </div>
-              <div class="session-stats">
-                <div class="stat-mini">
-                  <div class="stat-mini-label">Target</div>
-                  <div class="stat-mini-value">Free</div>
-                </div>
-              </div>
-            </div>
+            <!-- Sessions will be loaded dynamically -->
           </div>
         </div>
       </section>
@@ -262,6 +203,11 @@
       </div>
     </div>
   </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/sessions.js"></script>
 </body>
 
 </html>
