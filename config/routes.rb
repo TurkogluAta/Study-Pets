@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # Root route - API documentation
+  root "api#index"
+
   # Authentication routes
   post "register", to: "users#register"
   post "login", to: "users#login"
