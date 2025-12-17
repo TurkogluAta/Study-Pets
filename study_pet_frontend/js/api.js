@@ -1,5 +1,5 @@
-// Use environment variable in production, localhost in development
-const API_BASE_URL = window.BACKEND_URL || 'http://localhost:3000';
+// Backend API URL
+const API_BASE_URL = 'https://study-pet.onrender.com';
 
 // Get auth token from localStorage
 function getAuthToken() {

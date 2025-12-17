@@ -40,9 +40,3 @@ services:
         fromDatabase:
           name: study-pet-db
           property: password
-
-  - type: web
-    name: study-pet-frontend
-    plan: free
-    staticPublishPath: ./study_pet_frontend
-    buildCommand: echo "No build needed for static site"
