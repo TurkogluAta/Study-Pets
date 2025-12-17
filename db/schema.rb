@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_12_17_015132) do
+ActiveRecord::Schema[8.1].define(version: 2025_12_17_040143) do
   create_table "study_sessions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "actual_duration"
     t.boolean "completed", default: false
@@ -43,6 +43,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_12_17_015132) do
     t.datetime "created_at", null: false
     t.string "email"
     t.integer "experience_points"
+    t.datetime "last_checked_at"
     t.date "last_study_date"
     t.integer "level"
     t.string "name"

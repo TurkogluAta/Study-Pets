@@ -66,5 +66,6 @@ class User < ApplicationRecord
     self.pet_energy ||= 100
     self.streak_days ||= 0
     self.total_study_time ||= 0
+    self.last_checked_at ||= Time.current
   end
 end
