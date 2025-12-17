@@ -277,12 +277,14 @@ body.auth-page {
 .dashboard-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
+  align-items: start;
 }
 
 @media (min-width:1024px) {
   .dashboard-grid {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 380px 1fr;
+    gap: 2.5rem;
   }
 }
 
@@ -291,10 +293,11 @@ body.auth-page {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: .75rem;
-  padding: 1.5rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5rem;
+  height: fit-content;
 }
 
 .pet-info {
@@ -317,8 +320,10 @@ body.auth-page {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  background-color: rgba(110, 168, 254, 0.1);
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .pet-name {
@@ -390,6 +395,18 @@ body.auth-page {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   padding: 1.5rem 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .stats-overview .stat-card {

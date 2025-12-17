@@ -34,6 +34,16 @@ function updateUserInfo(user) {
 }
 
 function updatePetCard(user) {
+    // Pet avatar image
+    const petAvatarImg = document.querySelector('.pet-avatar-img');
+    if (petAvatarImg) {
+        // Use static pet images
+        const petImage = user.pet_type === 'cat'
+            ? 'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=300&h=300&fit=crop'
+            : 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=300&h=300&fit=crop';
+        petAvatarImg.style.backgroundImage = `url('${petImage}')`;
+    }
+
     // Pet name and type
     const petName = document.querySelector('.pet-name');
     if (petName) {
