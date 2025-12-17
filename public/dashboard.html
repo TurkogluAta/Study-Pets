@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Study Pet — Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <div class="dashboard-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-header">
+          <div class="sidebar-logo" aria-hidden="true">🐾</div>
+          <div class="sidebar-title">Study Pet</div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-menu">
+            <a class="nav-item active" href="dashboard.html"><span>Dashboard</span></a>
+            <a class="nav-item" href="tasks.html"><span>Tasks</span></a>
+            <a class="nav-item" href="sessions.html"><span>Study Sessions</span></a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <a class="nav-item" href="index.html"><span>Log out</span></a>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-info">
+          <h1 class="header-title">Welcome back...</h1>
+          <p class="header-subtitle">Keep the streak going!</p>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <section class="dashboard-content">
+        <div class="dashboard-grid">
+          <!-- Pet Card -->
+          <section class="pet-card">
+            <div class="pet-info">
+              <div class="pet-avatar-wrapper">
+                <div class="pet-avatar">
+                  <div class="pet-avatar-img"></div>
+                </div>
+              </div>
+              <h2 class="pet-name">---</h2>
+              <div class="pet-level">---</div>
+            </div>
+
+            <div class="pet-stats">
+              <div class="stat-item">
+                <div class="stat-header">
+                  <span class="stat-label">Mood</span>
+                  <span class="stat-value">---</span>
+                </div>
+              </div>
+
+              <div class="stat-item">
+                <div class="stat-header">
+                  <span class="stat-label">Energy</span>
+                  <span class="stat-value">0%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill energy" style="width: 0%;"></div>
+                </div>
+              </div>
+
+              <div class="stat-item">
+                <div class="stat-header">
+                  <span class="stat-label">XP to Next Level</span>
+                  <span class="stat-value">0 / 100</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill xp" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Stats -->
+          <section class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-card-header">
+                <div class="stat-card-icon" aria-hidden="true">🔥</div>
+                <div>
+                  <div class="stat-card-label">Streak</div>
+                </div>
+              </div>
+              <div class="stat-card-value">0</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-card-header">
+                <div class="stat-card-icon" aria-hidden="true">⏱</div>
+                <div>
+                  <div class="stat-card-label">Total Study Time</div>
+                </div>
+              </div>
+              <div class="stat-card-value">0h 0m</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-card-header">
+                <div class="stat-card-icon" aria-hidden="true">✅</div>
+                <div>
+                  <div class="stat-card-label">Total Completed Tasks</div>
+                </div>
+              </div>
+              <div class="stat-card-value">0</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-card-header">
+                <div class="stat-card-icon" aria-hidden="true">📚</div>
+                <div>
+                  <div class="stat-card-label">Total Completed Sessions</div>
+                </div>
+              </div>
+              <div class="stat-card-value">0</div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+
+</html>
