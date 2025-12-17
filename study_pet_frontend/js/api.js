@@ -1,4 +1,5 @@
-const API_BASE_URL = 'http://localhost:3000';
+// Use environment variable in production, localhost in development
+const API_BASE_URL = window.BACKEND_URL || 'http://localhost:3000';
 
 // Get auth token from localStorage
 function getAuthToken() {

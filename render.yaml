@@ -22,8 +22,6 @@ services:
         sync: false
       - key: RAILS_ENV
         value: production
-      - key: RAILS_SERVE_STATIC_FILES
-        value: enabled
       - key: WEB_CONCURRENCY
         value: 2
       - key: POSTGRES_HOST
@@ -42,3 +40,9 @@ services:
         fromDatabase:
           name: study-pet-db
           property: password
+
+  - type: web
+    name: study-pet-frontend
+    plan: free
+    staticPublishPath: ./study_pet_frontend
+    buildCommand: echo "No build needed for static site"

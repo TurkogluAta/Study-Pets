@@ -7,10 +7,17 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "*" # Allow all origins for development (change to specific domain in production)
+    # Allow localhost for development and Render frontend in production
+    origins(
+      "http://localhost:3000",
+      "http://localhost:8000",
+      /\Ahttps:\/\/.*\.onrender\.com\z/,
+      "https://study-pet.onrender.com"
+    )
 
     resource "*",
       headers: :any,
-      methods: [ :get, :post, :put, :patch, :delete, :options, :head ]
+      methods: [ :get, :post, :put, :patch, :delete, :options, :head ],
+      credentials: true
   end
 end
