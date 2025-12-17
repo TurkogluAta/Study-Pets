@@ -3,36 +3,117 @@ require "test_helper"
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
+    @token = generate_test_token(@user)
   end
 
-  test "should get index" do
-    get users_url, as: :json
-    assert_response :success
-  end
+  # ========== REGISTRATION TESTS ==========
 
-  test "should create user" do
+  test "should register new user with valid data" do
     assert_difference("User.count") do
-      post users_url, params: { user: { email: @user.email, experience_points: @user.experience_points, last_study_date: @user.last_study_date, level: @user.level, name: @user.name, password_digest: @user.password_digest, pet_energy: @user.pet_energy, pet_mood: @user.pet_mood, pet_name: @user.pet_name, pet_type: @user.pet_type, streak_days: @user.streak_days, total_study_time: @user.total_study_time, username: @user.username } }, as: :json
+      post "/register", params: {
+        user: {
+          username: "newuser",
+          email: "newuser@test.com",
+          password: "password123",
+          password_confirmation: "password123",
+          name: "New User",
+          pet_name: "Fluffy",
+          pet_type: "cat"
+        }
+      }, as: :json
     end
 
     assert_response :created
+    json = JSON.parse(response.body)
+    assert json["user"]
+    assert json["token"]
+    assert_equal "newuser", json["user"]["username"]
   end
 
-  test "should show user" do
-    get user_url(@user), as: :json
+  test "should not register user with invalid data" do
+    assert_no_difference("User.count") do
+      post "/register", params: {
+        user: {
+          username: "ab",  # Too short
+          email: "invalid",
+          password: "123"
+        }
+      }, as: :json
+    end
+
+    assert_response :unprocessable_content
+    json = JSON.parse(response.body)
+    assert json["errors"]
+  end
+
+  # ========== LOGIN TESTS ==========
+
+  test "should login with valid credentials" do
+    post "/login", params: {
+      email: "alice@test.com",
+      password: "password"
+    }, as: :json
+
     assert_response :success
+    json = JSON.parse(response.body)
+    assert json["user"]
+    assert json["token"]
   end
 
-  test "should update user" do
-    patch user_url(@user), params: { user: { email: @user.email, experience_points: @user.experience_points, last_study_date: @user.last_study_date, level: @user.level, name: @user.name, password_digest: @user.password_digest, pet_energy: @user.pet_energy, pet_mood: @user.pet_mood, pet_name: @user.pet_name, pet_type: @user.pet_type, streak_days: @user.streak_days, total_study_time: @user.total_study_time, username: @user.username } }, as: :json
+  test "should not login with invalid credentials" do
+    post "/login", params: {
+      email: "alice@test.com",
+      password: "wrongpassword"
+    }, as: :json
+
+    assert_response :unauthorized
+  end
+
+  # ========== PROFILE TESTS ==========
+
+  test "should get profile with valid token" do
+    get "/profile", headers: { Authorization: "Bearer #{@token}" }, as: :json
+
     assert_response :success
+    json = JSON.parse(response.body)
+    assert_equal @user.id, json["id"]
+    assert_equal @user.username, json["username"]
   end
 
-  test "should destroy user" do
+  test "should not get profile without token" do
+    get "/profile", as: :json
+
+    assert_response :unauthorized
+  end
+
+  test "should update profile" do
+    patch "/profile",
+      headers: { Authorization: "Bearer #{@token}" },
+      params: { user: { name: "Updated Name" } },
+      as: :json
+
+    assert_response :success
+    json = JSON.parse(response.body)
+    assert_equal "Updated Name", json["name"]
+  end
+
+  test "should delete account" do
     assert_difference("User.count", -1) do
-      delete user_url(@user), as: :json
+      delete "/profile", headers: { Authorization: "Bearer #{@token}" }, as: :json
     end
 
     assert_response :no_content
+  end
+
+  private
+
+  def generate_test_token(user)
+    JWT.encode(
+      {
+        user_id: user.id,
+        exp: 24.hours.from_now.to_i
+      },
+      Rails.application.secret_key_base
+    )
   end
 end
