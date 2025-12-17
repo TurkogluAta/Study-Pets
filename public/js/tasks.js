@@ -16,6 +16,10 @@ async function loadTasks() {
 
     } catch (error) {
         console.error('Tasks load error:', error);
+        const tbody = document.querySelector('.tasks-table tbody');
+        if (tbody) {
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 2rem; color: #e74c3c;">Failed to load tasks. Please check console for details.</td></tr>';
+        }
     }
 }
 

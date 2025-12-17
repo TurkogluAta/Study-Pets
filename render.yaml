@@ -24,6 +24,8 @@ services:
         value: production
       - key: RAILS_SERVE_STATIC_FILES
         value: enabled
+      - key: WEB_CONCURRENCY
+        value: 2
       - key: POSTGRES_HOST
         fromDatabase:
           name: study-pet-db
